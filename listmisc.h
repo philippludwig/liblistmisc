@@ -1,6 +1,8 @@
 #ifndef LIST_H_
 #define LIST_H_
 
+#include <stdbool.h>
+
 /** List structure. **/
 typedef struct list_t {
 	/** Data that this node contains, can be anything. **/
@@ -21,17 +23,20 @@ void list_free(list_t *list);
 
 /**
  * @brief Add some data to the given list.
- * @return 1: success, 0: failure.
+ * @return true: success, false: failure.
  */
-int list_add(list_t *list, void *data);
+bool list_add(list_t *list, void *data);
 
 /** Return the beginning of the list. **/
 list_t* list_start(const list_t *list);
 
-/** Return 1 if the given list is empty. **/
-char list_empty(const list_t *list);
+/** Return true if the given list is empty. **/
+bool list_empty(const list_t *list);
 
-/** Remove the given data from the given list. **/
+/** 
+ * @brief Remove the given data from the given list. 
+ * @return A pointer to data that has been removed. 
+ ***/
 void* list_remove(list_t *list, const void *data);
 
 #if (__STDC_VERSION__ >= 199901L) || (_MSC_VER >= 1800)

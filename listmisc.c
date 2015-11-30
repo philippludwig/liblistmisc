@@ -1,14 +1,15 @@
+#include "listmisc.h"
+
+#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "list.h"
-
-int list_add(list_t *list, void *data)
+bool list_add(list_t *list, void *data)
 {
 	// Valid list?
 	if(!list) {
 		printf("%s","[WARN] list_add: list == 0\n");
-		return 0;
+		return false;
 	}
 
 	// Create new node.
@@ -20,7 +21,7 @@ int list_add(list_t *list, void *data)
 	list->end = node;
 
 	// Success.
-	return 1;
+	return true;
 }
 
 void* list_remove(list_t *list, const void *data)
@@ -63,7 +64,7 @@ list_t* list_create()
 	return list;
 }
 
-char list_empty(const list_t *list)
+bool list_empty(const list_t *list)
 {
 	if(!list) return 1;
 	if(!list->next) return 1;
@@ -81,3 +82,4 @@ void list_free(list_t *list)
 		free(tmp);
 	}
 }
+

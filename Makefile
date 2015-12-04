@@ -37,10 +37,10 @@ build-static:
 	
 # Additional targets for cleaning and installing
 clean:
-	rm -fv list.o
+	rm -fv listmisc.o
 
 distclean:
-	rm -fv list.o liblistmisc.so liblistmisc.a
+	rm -fv listmisc.o liblistmisc.so liblistmisc.a
 
 install:
 	mkdir -p $(prefix)/lib/

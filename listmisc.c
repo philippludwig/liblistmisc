@@ -89,7 +89,7 @@ void* list_remove(list_t *list, const void *data)
 	return 0;
 }
 
-list_t* list_start(const list_t *list)
+list_t* list_start(const list_t* const list)
 {
 	if(!list) return 0;
 	return list->next;
@@ -110,7 +110,7 @@ list_t* list_create()
 	return list;
 }
 
-bool list_empty(const list_t *list)
+bool list_empty(const list_t* const list)
 {
 	// Invalid lists are empty lists.
 	if(!list) return true;

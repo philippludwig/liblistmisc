@@ -82,26 +82,26 @@ void list_free(list_t *list);
  *
  * @sa list_remove
  * @return true: success, false: failure.
- */
+ **/
 bool list_add(list_t *list, void *data);
 
 /** Return the beginning of the list. **/
-list_t* list_start(const list_t *list);
+list_t* list_start(const list_t* const list);
 
 /** Return true if the given list is empty. **/
-bool list_empty(const list_t *list);
+bool list_empty(const list_t* const list);
 
 /** 
  * @brief Remove the given data from the given list. 
  * @return A pointer to data that has been removed. 
- ***/
+ **/
 void* list_remove(list_t *list, const void *data);
 
 // The list_foreach macro depends on C99 support / recent versions of MSVC.
 #if (__STDC_VERSION__ >= 199901L) || (_MSC_VER >= 1800)
 /**
  * @brief Handy macro which makes it easier to iterate over a list.
- */
+ **/
 #define list_foreach(list,it) for(list_t *it=list_start(list);it!=NULL;it=it->next)
 #endif
 

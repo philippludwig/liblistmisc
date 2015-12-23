@@ -33,6 +33,10 @@
 // just #define bool, true and false yourself.
 #include <stdbool.h>
 
+#ifndef NULL
+#define NULL 0
+#endif
+
 /**
  * @brief List structure.
  *
